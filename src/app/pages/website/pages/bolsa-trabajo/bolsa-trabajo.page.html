@@ -1,0 +1,89 @@
+<header></header>
+<ion-content [fullscreen]="true" [scrollEvents]="true" (ionScroll)="headerStatusService.setBooleanStatus($event)">
+  
+
+  <div class="container">
+    <ion-searchbar   class="custom-searchbar my-4" style="width: 250px;--border-radius: 20px;" [(ngModel)]="search" (ngModelChange)="bolsa=[]" placeholder="Buscar Empleo" inputmode="text" type="text" [debounce]="250" ></ion-searchbar>
+    <div class="row">
+      <ion-list class="d-none d-md-block">
+        <ion-card mode="ios" style="background-color: #f5f5f5;">
+          <ion-item class="ion-padding shadow"   lines="none" class="border"color="ligth"  *ngFor="let trabajo of bolsa">
+            <img *ngIf="trabajo.foto" slot="start" [src]="uri+trabajo.foto"/>
+            <ion-label class="my-3"><strong><h3><strong>{{trabajo.titulo}}</strong></h3>
+            <p class="my-3">Hasta: {{mon(trabajo.vigencia)}}</p>
+            <div class="row my-3">
+              <div fill="clear"  class=" shadow col-md-2 mx-3 border "   shape="round">
+               {{trabajo.puestoDeseado}}
+              </div>
+              <div fill="clear"  class="shadow col-md-2 mx-3 border "   shape="round">
+                {{trabajo.escolaridad}}
+               </div>
+               <div fill="clear"  class=" shadow col-md-2 mx-3 border "   shape="round">
+                {{trabajo.estado}}
+               </div>
+               <div fill="clear"  class="shadow col-md-2 me-auto border "   shape="round">
+                {{trabajo.espacio}}
+               </div>
+              
+            </div>
+            </strong></ion-label>
+            <ion-button  [routerLink]="trabajo.identificador" expand="block" slot="end" shape="round">
+              <strong class="h6 m-0 p-2">Ver Oferta</strong>
+            </ion-button>
+          </ion-item>
+        </ion-card>
+      
+      </ion-list>
+      
+      <div class="d-block d-md-none">
+        <ion-card *ngFor="let trabajo of bolsa" mode="ios" style="background-color: #f5f5f5;">
+          <ion-card-header>
+            <img class="img-fluid w-100" [src]="uri+trabajo.foto"/>
+          </ion-card-header>
+          <ion-card-content>
+            <h3><strong>{{trabajo.titulo}}</strong></h3>
+            <br>
+            <div fill="clear"  class=" shadow col-md-2 mx-2 border "   shape="round">
+              {{trabajo.puestoDeseado}}
+             </div>
+             <div fill="clear"  class="shadow col-md-2 mx-2 border "   shape="round">
+               {{trabajo.escolaridad}}
+              </div>
+              <div fill="clear"  class=" shadow col-md-2 mx-2 border "   shape="round">
+               {{trabajo.estado}}
+              </div>
+              <div fill="clear"  class="shadow col-md-2 mx-2 border "   shape="round">
+               {{trabajo.espacio}}
+              </div>
+
+              <div  class=" my-4" expand="block"  [routerLink]="trabajo.identificador" shape="round">
+                <strong class="h6 m-0 p-2">Ver Oferta</strong>
+              </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
+  
+    </div>
+  </div>
+
+
+  
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 my-3 mx-auto text-center">
+        <img src="../../../../../assets/logo-icic2.png" alt="">
+      </div>
+      <div class="col-md-3 my-3 mx-auto text-center">
+        <img src="../../../../../assets/logo-itc-3.png" alt="">
+      </div>
+      <div class="col-md-3 my-3 mx-auto text-center">
+        <img src="../../../../../assets/logo-fic2.png" alt="">
+      </div>
+    </div>
+  </div>
+  
+
+<web-footer></web-footer>
+</ion-content>
+

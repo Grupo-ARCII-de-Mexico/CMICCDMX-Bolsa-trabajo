@@ -1,0 +1,30 @@
+<header></header>
+
+<ion-content [fullscreen]="true">
+  
+
+
+  <div class="container">
+    <ion-searchbar class="my-3" placeholder="Buscar " [(ngModel)]="search" [debounce]="250" ></ion-searchbar>
+
+    <ion-list>
+      <ion-item class="ion-margin-vertical" *ngFor="let item of postulantes  | bolsaTrabajoPostulanteSearch:search">
+        <ion-avatar *ngIf="item.matricula" slot="start">
+          <img src="../../../../../assets/logo-itc-3.png" />
+        </ion-avatar>
+        <ion-label>
+          {{item.area}}
+          <p>Sueldo Deseado: {{item.sueldo}}</p>
+          <p>Ubicación: {{item.alcaldia}}, CDMX</p>
+          <p>Experiencia: {{item.experiencia}}</p>
+          <p>Competencias: {{item.competencias}}</p>
+          <p>Idiomas: <span *ngFor="let i of item.idiomas">{{i}}, </span></p>
+        </ion-label>
+        <ion-button (click)="go('https://cmiccdmx.org/login')" expand="block"shape="round">
+          Ver más
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
+  <web-footer></web-footer>
+</ion-content>

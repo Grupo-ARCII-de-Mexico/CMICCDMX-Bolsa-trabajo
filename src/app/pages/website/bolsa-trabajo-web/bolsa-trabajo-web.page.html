@@ -1,0 +1,63 @@
+<header></header>
+
+<ion-content [fullscreen]="true">
+ <!-- Slider-->
+ <swiper-container
+ 
+id="mySwiper"
+ #mySwiper [autoplay]="{delay: 4000, pauseOnMouseEnter:true}"
+  [pagination]="paginationConfig"
+
+>
+    <swiper-slide (click)="go(item?.uri)" *ngFor="let item of sliders" class="swiper-slide pointer" style="
+    background-image: url({{uri + item.imagen}});
+    background-position: center;
+    background-size: cover;
+    backdrop-filter: blur(60px);
+    ">
+      <div class="bg w-100 bg h-100 d-flex" style="
+      background-image: url({{uri + item.imagen}});
+      background-position: center;
+      background-repeat:no-repeat;
+      background-size: contain;
+      ">
+        <div class="m-auto">
+          <p class="mega" *ngIf="item?.texto !== ('null' || null)" >{{item?.texto}}</p>
+        </div>
+      </div>
+     
+    </swiper-slide>
+
+  </swiper-container>
+
+
+  <div class="row">
+    <div class="col-md-6 my-3">
+      <ion-card mode="ios">
+        <ion-card-header>
+          <ion-card-title class="text-center">Ofertas de Trabajo</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <img src="../../../../assets/21.jpg" class="img-fluid" alt="">
+          <h3 class="my-3 text-center">Encuentra las mejores ofertas de trabajo en nuestra bolsa de trabajo</h3>
+          <ion-button routerLink="bolsa-trabajo" expand="block" fill="outline">Ver ofertas</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <div class="col-md-6 my-3">
+      <ion-card mode="ios">
+        <ion-card-header>
+          <ion-card-title class="text-center">Buscar al Mejor Personal</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <img src="../../../../assets/10.jpg" class="img-fluid" alt="">
+          <h3 class="my-3 text-center">Encuentra los mejores Perfiles de trabajo en nuestra bolsa de postulantes</h3>
+          <ion-button routerLink="bolsa-postulante"expand="block" fill="outline">Ver ofertas</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+  <web-footer></web-footer>
+</ion-content>

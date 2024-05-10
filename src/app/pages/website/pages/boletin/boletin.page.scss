@@ -1,0 +1,44 @@
+
+.imgp{
+    width: 100%;
+    height: 40vh;
+}
+
+hr{
+    border-color: var(--ion-color-light);
+    background-color: var(--ion-color-light);
+    border-width: 2px;
+    margin: 0;
+    width: 100%;
+    opacity: 1;
+    margin-right:auto; /* Centra horizontalmente el <hr> */
+}
+
+ion-card{
+    width: 80%;
+  }
+
+  .frojo{
+    background-color: rgba(251, 4, 28, 0.5);
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    transition: 300ms;
+  }
+  .frojoq{
+    background-color: rgba(251, 4, 28, 0.5);
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    transition: 300ms;
+    cursor: pointer;
+  }
+
+
+  .fnegro{
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+  }
